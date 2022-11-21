@@ -5,6 +5,7 @@ const yourOrderHtml = document.getElementById('your-order')
 const modal = document.getElementById('modal')
 const paymentForm = document.getElementById('payment-form')
 const thanksMessage = document.getElementById('thanks-message')
+const closeModal = document.getElementById('close-modal')
 
 let orderList = []
 
@@ -29,6 +30,10 @@ document.addEventListener('click', function(e) {
 function openModal() {
     modal.style.display = 'block'
 }
+
+closeModal.addEventListener('click', function() {
+    modal.style.display = 'none'
+})
 
 modal.addEventListener('submit', function(e) {
     e.preventDefault()
@@ -111,7 +116,7 @@ function getFeedHtml() {
             })
         } else if (orderList.length === 0) {
             yourOrderHtml.classList.add('hidden')
-        }
+        } 
         orderHtml += 
         `
         <div class="total-price">
